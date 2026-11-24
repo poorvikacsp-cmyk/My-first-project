@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173f32">
+<meta name="description" content="GREENSCAPE — a smart urban greening planner for greener, cooler and healthier cities.">
+<title>GREENSCAPE | Smart Urban Greening Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#173f32;--forest2:#245b45;--sage:#8ca78a;--mint:#e7efe5;--cream:#f7f6ef;--paper:#fffefa;--ink:#24352d;--muted:#718078;--line:#e3e9df;--gold:#d7b76b;--shadow:0 16px 45px rgba(25,57,42,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(247,246,239,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(227,233,223,.8)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--forest);font-family:Manrope,sans-serif;font-weight:800;letter-spacing:.12em;font-size:17px}.brandmark{width:37px;height:37px;border-radius:13px;background:var(--forest);display:grid;place-items:center;color:#eaf1e5;font-size:20px}.navlinks{display:flex;gap:26px;align-items:center}.navlinks a{color:#53665a;text-decoration:none;font-size:13px;font-weight:700}.navlinks a:hover{color:var(--forest)}.nav-cta,.btn{border:0;border-radius:999px;padding:12px 19px;background:var(--forest);color:white;font-weight:700;font-size:13px;box-shadow:0 8px 18px rgba(23,63,50,.13)}.nav-cta:hover,.btn:hover{background:var(--forest2);transform:translateY(-1px)}.menu{display:none;background:none;border:0;font-size:24px;color:var(--forest)}
+.hero{padding:76px 0 62px;background:radial-gradient(ellipse at 82% 10%,#e2eadb 0,transparent 35%),linear-gradient(135deg,#f8f7f0,#eef3e9);overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #d7e2d4;background:#f9fbf6;border-radius:99px;padding:8px 13px;color:var(--forest2);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:#79a77c}.hero h1{font:800 clamp(42px,5.5vw,70px)/1.03 Manrope,sans-serif;letter-spacing:-.055em;color:var(--forest);margin:23px 0 18px}.hero h1 span{color:#8ba789}.hero p{max-width:530px;color:#68786d;font-size:16px;line-height:1.8;margin:0 0 27px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn.secondary{background:transparent;color:var(--forest);border:1px solid #cbd8c9;box-shadow:none}.hero-note{font-size:11px;color:#87948a;margin-top:18px}.hero-art{min-height:380px;position:relative;border-radius:34px;background:linear-gradient(145deg,#dbe8d7,#b9d0b8);overflow:hidden;box-shadow:var(--shadow)}.sun{position:absolute;right:14%;top:12%;width:74px;height:74px;background:#e6ca81;border-radius:50%;box-shadow:0 0 0 18px #e6ca8130}.skyline{position:absolute;bottom:94px;left:8%;right:8%;height:170px;display:flex;align-items:end;gap:10px}.building{flex:1;background:#f5f3e8;border-radius:8px 8px 0 0;position:relative;box-shadow:inset -8px 0 #dbe2d5}.building:before{content:"";position:absolute;inset:17px 12px;background:repeating-linear-gradient(90deg,transparent 0 15px,#b4c7b0 15px 20px),repeating-linear-gradient(0deg,transparent 0 20px,#b4c7b0 20px 25px);opacity:.7}.building:nth-child(1){height:70%}.building:nth-child(2){height:94%}.building:nth-child(3){height:78%}.building:nth-child(4){height:100%}.building:nth-child(5){height:63%}.ground{position:absolute;bottom:0;height:105px;background:#5e8664;width:100%;border-radius:50% 50% 0 0/25% 25% 0 0}.tree{position:absolute;bottom:63px;width:22px;height:100px;background:#765d43;border-radius:10px}.tree:before,.tree:after{content:"";position:absolute;border-radius:50%;background:#477b55}.tree:before{width:76px;height:76px;left:-27px;top:-37px}.tree:after{width:59px;height:59px;left:-13px;top:-65px;background:#6d9b6c}.tree.t1{left:13%}.tree.t2{left:80%;transform:scale(1.2)}.art-label{position:absolute;left:22px;top:22px;background:#fffefaE8;border:1px solid #ffffff;border-radius:15px;padding:12px 15px;color:var(--forest);font-size:11px;font-weight:800;box-shadow:var(--shadow)}.art-label small{display:block;color:#809083;font-weight:500;margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-27px;position:relative}.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow)}.stat strong{display:block;color:var(--forest);font:800 22px Manrope}.stat span{font-size:11px;color:var(--muted)}
+section{padding:76px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}.kicker{font-size:10px;font-weight:800;letter-spacing:.16em;color:#8aa184;text-transform:uppercase}.section-head h2{font:800 clamp(28px,3.5vw,42px)/1.15 Manrope;color:var(--forest);letter-spacing:-.04em;margin:9px 0 0}.section-head p{max-width:430px;color:var(--muted);line-height:1.7;font-size:13px;margin:0}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:var(--shadow)}.planner-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:8px}.field label{font-size:11px;font-weight:800;color:#51665a;letter-spacing:.04em}.field input,.field select{width:100%;border:1px solid #dce5da;border-radius:12px;padding:13px 14px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:#7fa17d;box-shadow:0 0 0 3px #dcebdc}.field small{color:#8a968d;font-size:10px}.form-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:21px}.hint{font-size:11px;color:var(--muted);line-height:1.5}.weather-card{background:var(--forest);color:white;border-radius:22px;padding:23px;min-height:100%;position:relative;overflow:hidden}.weather-card:after{content:"☼";position:absolute;right:10px;top:-30px;font-size:170px;color:#ffffff0d}.weather-top{display:flex;justify-content:space-between;align-items:start;position:relative;z-index:1}.weather-top span{font-size:10px;color:#c5d7c7;letter-spacing:.1em;text-transform:uppercase;font-weight:700}.weather-city{font:700 21px Manrope;margin-top:6px}.weather-temp{font:800 53px Manrope;letter-spacing:-.06em;margin:21px 0 2px}.weather-desc{font-size:13px;color:#d0dfd0}.weather-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:27px;position:relative;z-index:1}.weather-metrics div{background:#ffffff14;border:1px solid #ffffff18;border-radius:13px;padding:12px 10px}.weather-metrics b{display:block;font:700 17px Manrope}.weather-metrics small{font-size:9px;color:#c3d6c5}.weather-status{margin-top:17px;color:#c5d7c7;font-size:10px;line-height:1.5;position:relative;z-index:1}.result{margin-top:18px;display:none}.result.show{display:block}.result-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:14px}.result-head h3{font:800 21px Manrope;color:var(--forest);margin:0}.plant-grid,.idea-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.plant-card,.idea-card{border:1px solid var(--line);border-radius:18px;background:#fff;padding:17px}.plant-icon{width:42px;height:42px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:22px;margin-bottom:12px}.plant-card h4,.idea-card h3{font:800 15px Manrope;color:var(--forest);margin:0 0 7px}.plant-card p,.idea-card p{font-size:11px;color:var(--muted);line-height:1.65;margin:0}.tag{display:inline-block;background:#edf4eb;color:#4d7653;border-radius:99px;padding:5px 8px;font-size:9px;font-weight:800;margin:10px 4px 0 0}.notice{padding:13px 15px;background:#f8f4e8;border:1px solid #eee4c7;border-radius:13px;color:#75643c;font-size:11px;line-height:1.6;margin-top:15px}
+.idea-toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}.filter{border:1px solid #dce5da;background:transparent;color:#65766a;border-radius:99px;padding:9px 14px;font-size:11px;font-weight:700}.filter.active{background:var(--forest);border-color:var(--forest);color:#fff}.idea-card{min-height:190px;transition:.2s}.idea-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.idea-card .emoji{font-size:25px;margin-bottom:12px}.idea-card .meta{margin-top:13px;font-size:9px;color:#8b978d;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.step{padding:20px;border-radius:18px;background:#edf2e9;border:1px solid #e0e8dc}.step b{font:800 23px Manrope;color:#9ab197}.step h3{font:800 14px Manrope;color:var(--forest);margin:12px 0 6px}.step p{font-size:11px;line-height:1.6;color:var(--muted);margin:0}
+footer{background:#14382d;color:#e9f0e5;padding:40px 0}.foot{display:flex;justify-content:space-between;gap:25px;align-items:center}.foot p{color:#b6cabb;font-size:11px;line-height:1.7;max-width:500px}.foot .brand{color:#f2f5ed}.foot small{color:#9fb5a3;font-size:10px}
+.modal{position:fixed;inset:0;background:#142d25b8;display:none;place-items:center;padding:20px;z-index:50}.modal.open{display:grid}.modal-box{background:var(--paper);border-radius:22px;padding:25px;max-width:420px;width:100%;text-align:center}.modal-box h3{font:800 22px Manrope;color:var(--forest)}.modal-box p{font-size:12px;color:var(--muted);line-height:1.6}.qr-area{background:#fff;padding:15px;border:1px solid var(--line);border-radius:15px;display:inline-block;margin:10px}.close{border:0;background:#edf2e9;color:var(--forest);border-radius:99px;padding:10px 17px;font-weight:700}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:300px}.navlinks{display:none}.menu{display:block}.navlinks.open{display:flex;position:absolute;top:76px;left:0;right:0;background:var(--cream);padding:20px;flex-direction:column;border-bottom:1px solid var(--line)}.planner-grid{grid-template-columns:1fr}.plant-grid,.idea-grid{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:12px}.stats{margin-top:15px}}
+@media(max-width:560px){.wrap{width:min(100% - 28px,1160px)}.hero{padding:48px 0}.hero-art{min-height:255px}.stats{grid-template-columns:1fr}.stat{padding:13px 16px}.stat strong{font-size:18px}section{padding:55px 0}.plant-grid,.idea-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.panel{padding:17px}.weather-metrics{gap:5px}.weather-metrics div{padding:10px 7px}.weather-metrics b{font-size:15px}.foot{display:block}.foot small{display:block;margin-top:15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#"><span class="brandmark">✦</span> GREENSCAPE</a>
+<nav class="navlinks" id="navlinks"><a href="#planner">Planner</a><a href="#ideas">Ideas library</a><a href="#method">Our approach</a><a href="#about">About</a></nav>
+<button class="nav-cta" onclick="document.querySelector('#planner').scrollIntoView()">Explore planner ↗</button>
+<button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><div class="eyebrow"><span class="dot"></span> A smarter way to grow greener cities</div>
+<h1>Make room for <span>more green.</span></h1>
+<p>Explore practical urban greening ideas, understand local weather and soil conditions, and discover planting options that fit your space — starting with Hassan, Karnataka.</p>
+<div class="hero-actions"><button class="btn" onclick="document.querySelector('#planner').scrollIntoView({behavior:'smooth'})">Start planning <span>↗</span></button><button class="btn secondary" onclick="document.querySelector('#ideas').scrollIntoView({behavior:'smooth'})">Explore ideas</button></div>
+<div class="hero-note">A student-led urban sustainability concept · City example: Hassan, Karnataka</div></div>
+<div class="hero-art" aria-label="Illustration of a greener city"><div class="sun"></div><div class="art-label">THE GREEN CITY VISION<small>Nature woven into everyday places</small></div><div class="skyline"><div class="building"></div><div class="building"></div><div class="building"></div><div class="building"></div><div class="building"></div></div><div class="tree t1"></div><div class="tree t2"></div><div class="ground"></div></div>
+</div></section>
+<div class="wrap stats"><div class="stat"><strong>01 · Identify</strong><span>Find spaces with greening potential</span></div><div class="stat"><strong>02 · Match</strong><span>Fit plants and ideas to local conditions</span></div><div class="stat"><strong>03 · Sustain</strong><span>Plan water, care and long-term upkeep</span></div></div>
+
+<section id="planner"><div class="wrap">
+<div class="section-head"><div><div class="kicker">Interactive tool</div><h2>Your local greening planner</h2></div><p>Use the live weather panel and enter the soil observations from your survey. The planner gives indicative ideas — always verify species and site conditions locally.</p></div>
+<div class="planner-grid">
+<div class="panel">
+<div class="planner-grid">
+<div class="field"><label for="city">CITY / LOCATION</label><input id="city" value="Hassan" placeholder="e.g. Hassan"><small>Weather is looked up using the city name.</small></div>
+<div class="field"><label for="space">SPACE TYPE</label><select id="space"><option value="roadside">Roadside / footpath</option><option value="park">Park / open plot</option><option value="rooftop">Rooftop / terrace</option><option value="wall">Wall / boundary</option><option value="campus">School / college campus</option><option value="residential">Residential area</option></select></div>
+<div class="field"><label for="soil">SOIL TYPE</label><select id="soil"><option value="loamy">Loamy</option><option value="clay">Clay</option><option value="sandy">Sandy</option><option value="red">Red soil</option><option value="unknown">Not tested / unknown</option></select></div>
+<div class="field"><label for="ph">SOIL pH (optional)</label><input id="ph" type="number" min="3" max="10" step=".1" placeholder="e.g. 6.5"><small>Use a soil test result if available.</small></div>
+<div class="field"><label for="moisture">SOIL MOISTURE</label><select id="moisture"><option value="moderate">Moderately moist</option><option value="dry">Dry</option><option value="wet">Wet / waterlogged</option></select></div>
+<div class="field"><label for="sun">SUNLIGHT</label><select id="sun"><option value="full">Full sun (6+ hours)</option><option value="partial">Partial sun (3–6 hours)</option><option value="shade">Mostly shade</option></select></div>
+</div>
+<div class="form-actions"><button class="btn" id="recommendBtn">Find suitable ideas ↗</button><button class="btn secondary" id="resetBtn">Reset</button></div>
+<div class="hint" style="margin-top:12px">Soil pH and moisture are manual inputs. This website does not measure soil directly; use a soil testing kit or sensor for actual readings.</div>
+<div class="result" id="recommendations"><div class="result-head"><h3>Suggested planting direction</h3><span class="tag">Indicative only</span></div><div class="plant-grid" id="plantResults"></div><div class="notice" id="plantNote"></div></div>
+</div>
+<div class="weather-card">
+<div class="weather-top"><div><span>Live local conditions</span><div class="weather-city" id="weatherCity">Hassan, Karnataka</div></div><span id="weatherIcon" style="font-size:29px">☀</span></div>
+<div class="weather-temp" id="temperature">--°</div><div class="weather-desc" id="weatherDesc">Fetching current weather…</div>
+<div class="weather-metrics"><div><b id="humidity">--%</b><small>HUMIDITY</small></div><div><b id="wind">-- km/h</b><small>WIND</small></div><div><b id="rain">-- mm</b><small>PRECIPITATION</small></div></div>
+<div class="weather-status" id="weatherStatus">Weather data is provided by Open-Meteo. Internet connection required.</div>
+<button class="btn secondary" id="refreshWeather" style="margin-top:17px;background:#ffffff16;border-color:#ffffff45;color:white">Refresh weather ↻</button>
+</div>
+</div></div></section>
+
+<section id="ideas" style="background:#f0f3eb"><div class="wrap">
+<div class="section-head"><div><div class="kicker">Explore possibilities</div><h2>Ideas for greener urban spaces</h2></div><p>Choose an intervention based on the available space, safety, local climate, maintenance capacity and community needs.</p></div>
+<div class="idea-toolbar" id="filters"><button class="filter active" data-filter="all">All ideas</button><button class="filter" data-filter="street">Streets</button><button class="filter" data-filter="small">Small spaces</button><button class="filter" data-filter="building">Buildings</button><button class="filter" data-filter="water">Water-smart</button><button class="filter" data-filter="community">Community</button></div>
+<div class="idea-grid" id="ideaGrid"></div>
+</div></section>
+
+<section id="method"><div class="wrap">
+<div class="section-head"><div><div class="kicker">From survey to action</div><h2>A practical four-step method</h2></div><p>GREENSCAPE turns field observations into a realistic plan that can be piloted, monitored and improved over time.</p></div>
+<div class="process">
+<div class="step"><b>01</b><h3>Survey the space</h3><p>Record location, dimensions, sunlight, existing trees, soil, drainage, access and community needs.</p></div>
+<div class="step"><b>02</b><h3>Understand conditions</h3><p>Check local weather and use tested soil pH and moisture values where available.</p></div>
+<div class="step"><b>03</b><h3>Match the solution</h3><p>Select suitable planting types, native species and water-conscious design options.</p></div>
+<div class="step"><b>04</b><h3>Care and measure</h3><p>Assign maintenance ownership and track plant survival, water use, shade and feedback.</p></div>
+</div>
+</div></section>
+
+<section id="about" style="padding-top:10px"><div class="wrap"><div class="panel" style="display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;background:#e8efe4">
+<div style="max-width:700px"><div class="kicker">The GREENSCAPE promise</div><h2 style="font:800 27px Manrope;color:var(--forest);margin:9px 0">Right place. Right plant. Right care.</h2><p style="font-size:13px;color:var(--muted);line-height:1.8;margin:0">This is an educational planning prototype for urban greening. Final plant choices must be checked with local horticulture experts, municipal guidance and site-specific assessment. No automatic soil sensing or guaranteed environmental outcomes are claimed.</p></div>
+<button class="btn" id="qrBtn">Create QR for this page ↗</button>
+</div></div></section>
+</main>
+<footer><div class="wrap foot"><div><a class="brand" href="#"><span class="brandmark">✦</span> GREENSCAPE</a><p>Transforming concrete cities into greener, cooler and more liveable communities. A city-level urban greening project concept, with Hassan, Karnataka as the example location.</p></div><small>Student project demonstration · Built for learning and planning</small></div></footer>
+<div class="modal" id="qrModal"><div class="modal-box"><h3>Your GREENSCAPE QR code</h3><p>After publishing this website, this QR code can open the live page. It currently encodes the page address where it is hosted.</p><div class="qr-area" id="qrCode"></div><p id="qrHelp"></p><button class="close" id="closeQr">Close</button></div></div>
+<script>
+const ideas=[
+{icon:"🌳",title:"Shaded street corridors",cat:"street",desc:"Plant suitable canopy trees along walkways and roads, while keeping sightlines, utilities and pedestrian access clear.",meta:"Shade · Streets"},
+{icon:"🌿",title:"Pocket parks",cat:"small",desc:"Turn small vacant or leftover plots into welcoming green pauses with native plants, seating and permeable ground.",meta:"Community · Small plots"},
+{icon:"🪴",title:"Vertical gardens",cat:"building",desc:"Use walls, fences or modular vertical systems where ground space is limited and safe irrigation is available.",meta:"Walls · Space-saving"},
+{icon:"🏢",title:"Rooftop gardens",cat:"building",desc:"Create container gardens or green roofs only after structural capacity, waterproofing, access and safety are checked.",meta:"Buildings · Cooling potential"},
+{icon:"🌧️",title:"Rain gardens",cat:"water",desc:"Shape planted depressions to slow and absorb runoff where soil infiltration and overflow routes are suitable.",meta:"Stormwater · Biodiversity"},
+{icon:"💧",title:"Rainwater harvesting",cat:"water",desc:"Collect roof runoff for suitable non-potable garden use with safe storage, filtration and maintenance.",meta:"Water-smart · Reuse"},
+{icon:"🦋",title:"Native biodiversity corners",cat:"community",desc:"Combine locally appropriate flowering plants, shrubs and habitat features to support pollinators and urban biodiversity.",meta:"Native plants · Habitat"},
+{icon:"🌱",title:"School and campus gardens",cat:"community",desc:"Create learning gardens with labelled plants, student stewardship, composting and a simple care calendar.",meta:"Education · Participation"},
+{icon:"🌾",title:"Drought-aware planting",cat:"water",desc:"Choose locally adapted, lower-water plants, use mulch and group plants by similar water needs.",meta:"Water efficiency · Resilience"},
+{icon:"🌼",title:"Green medians",cat:"street",desc:"Use low-growing, hardy vegetation in suitable road medians without obstructing visibility or traffic safety.",meta:"Roads · Visual quality"},
+{icon:"🌲",title:"Tree pits and soil cells",cat:"street",desc:"Improve rooting space and soil volume for street trees where underground services and pavement design allow.",meta:"Street trees · Soil health"},
+{icon:"🍃",title:"Green pergolas",cat:"small",desc:"Add climbers to shaded seating structures in parks or campuses, using non-invasive species and stable supports.",meta:"Shade · Public space"}
+];
+const grid=document.getElementById('ideaGrid');
+function renderIdeas(filter='all'){grid.innerHTML='';ideas.filter(i=>filter==='all'||i.cat===filter).forEach(i=>{const el=document.createElement('article');el.className='idea-card';el.innerHTML=`<div class="emoji">${i.icon}</div><h3>${i.title}</h3><p>${i.desc}</p><div class="meta">${i.meta}</div>`;grid.appendChild(el)})}
+renderIdeas();
+document.getElementById('filters').addEventListener('click',e=>{if(!e.target.matches('.filter'))return;document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');renderIdeas(e.target.dataset.filter)});
+const plantCatalog=[
+{name:"Native shade trees",icon:"🌳",types:["roadside","park","campus","residential"],soils:["loamy","red","clay","unknown"],sun:["full","partial"],moist:["moderate","dry"],why:"Consider locally native canopy species selected for mature size, root behaviour, water needs and overhead utilities.",tags:["Shade","Native-first"]},
+{name:"Native flowering shrubs",icon:"🌺",types:["park","campus","residential","wall"],soils:["loamy","red","sandy","unknown"],sun:["full","partial"],moist:["moderate","dry"],why:"Useful for boundaries and biodiversity planting. Choose species that suit local rainfall and available maintenance.",tags:["Biodiversity","Low-space"]},
+{name:"Groundcovers and grasses",icon:"🌾",types:["roadside","park","campus","residential"],soils:["loamy","sandy","red","unknown"],sun:["full","partial"],moist:["moderate","dry"],why:"Can cover exposed soil and soften landscape edges. Avoid obstructing paths, drains or road visibility.",tags:["Soil cover","Low height"]},
+{name:"Climbers on a safe support",icon:"🌿",types:["wall","campus","residential"],soils:["loamy","red","unknown"],sun:["full","partial","shade"],moist:["moderate"],why:"A space-saving option for suitable walls, fences or pergolas. Confirm support strength, pruning and irrigation.",tags:["Vertical greening","Space-saving"]},
+{name:"Container and terrace plants",icon:"🪴",types:["rooftop","campus","residential"],soils:["loamy","unknown"],sun:["full","partial"],moist:["moderate"],why:"Use lightweight containers, good drainage and a reliable watering plan. Check roof load and wind exposure first.",tags:["Rooftop","Flexible"]},
+{name:"Water-tolerant planting",icon:"💧",types:["park","campus","residential"],soils:["clay","loamy","unknown"],sun:["full","partial"],moist:["wet"],why:"For damp locations, select locally suitable species that tolerate periodic wet soil; correct drainage problems first.",tags:["Wet areas","Drainage"]}
+];
+function recommend(){
+ const type=document.getElementById('space').value,soil=document.getElementById('soil').value,moist=document.getElementById('moisture').value,sun=document.getElementById('sun').value,ph=document.getElementById('ph').value;
+ let matches=plantCatalog.filter(p=>p.types.includes(type)&&p.soils.includes(soil)&&p.sun.includes(sun)&&p.moist.includes(moist));
+ if(!matches.length)matches=plantCatalog.filter(p=>p.types.includes(type));
+ const target=document.getElementById('plantResults');target.innerHTML='';
+ matches.slice(0,3).forEach(p=>{let el=document.createElement('div');el.className='plant-card';el.innerHTML=`<div class="plant-icon">${p.icon}</div><h4>${p.name}</h4><p>${p.why}</p>${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}`;target.appendChild(el)});
+ let phtxt=ph?` Entered soil pH: ${ph}. Confirm the range against the selected species' horticultural requirements.`:' Soil pH was not entered; a soil test will improve species selection.';
+ document.getElementById('plantNote').textContent='Recommendations are broad planting categories, not a verified species prescription.'+phtxt+' Consult local horticulture or forest department guidance before planting.';
+ document.getElementById('recommendations').classList.add('show');
+}
+document.getElementById('recommendBtn').addEventListener('click',recommend);
+document.getElementById('resetBtn').addEventListener('click',()=>{document.getElementById('space').value='roadside';document.getElementById('soil').value='loamy';document.getElementById('ph').value='';document.getElementById('moisture').value='moderate';document.getElementById('sun').value='full';document.getElementById('recommendations').classList.remove('show')});
+const weatherCodes={0:["Clear sky","☀"],1:["Mainly clear","🌤"],2:["Partly cloudy","⛅"],3:["Overcast","☁"],45:["Fog","🌫"],48:["Depositing rime fog","🌫"],51:["Light drizzle","🌦"],53:["Drizzle","🌦"],55:["Dense drizzle","🌧"],61:["Slight rain","🌦"],63:["Moderate rain","🌧"],65:["Heavy rain","🌧"],71:["Slight snow","❄"],80:["Rain showers","🌦"],81:["Rain showers","🌧"],82:["Heavy showers","🌧"],95:["Thunderstorm","⛈"]};
+async function loadWeather(){
+ const city=document.getElementById('city').value.trim()||'Hassan';
+ document.getElementById('weatherCity').textContent=city;
+ document.getElementById('weatherDesc').textContent='Fetching current weather…';
+ document.getElementById('weatherStatus').textContent='Connecting to live weather service…';
+ try{
+  const geo=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`);
+  if(!geo.ok)throw new Error('Location lookup failed');
+  const gd=await geo.json();if(!gd.results?.length)throw new Error('Location not found. Try a nearby larger town.');
+  const place=gd.results[0];
+  const url=`https://api.open-meteo.com/v1/forecast?latitude=${place.latitude}&longitude=${place.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&timezone=auto`;
+  const res=await fetch(url);if(!res.ok)throw new Error('Weather service unavailable');
+  const data=await res.json(),c=data.current,desc=weatherCodes[c.weather_code]||['Current conditions','🌤'];
+  document.getElementById('weatherCity').textContent=`${place.name}${place.admin1?', '+place.admin1:''}`;
+  document.getElementById('temperature').textContent=`${Math.round(c.temperature_2m)}°`;
+  document.getElementById('weatherDesc').textContent=`${desc[0]} · Feels like ${Math.round(c.apparent_temperature)}°C`;
+  document.getElementById('weatherIcon').textContent=desc[1];
+  document.getElementById('humidity').textContent=`${c.relative_humidity_2m}%`;
+  document.getElementById('wind').textContent=`${Math.round(c.wind_speed_10m)} km/h`;
+  document.getElementById('rain').textContent=`${Number(c.precipitation).toFixed(1)} mm`;
+  document.getElementById('weatherStatus').textContent=`Live conditions · ${c.time.replace('T',' ')} (local time). Source: Open-Meteo. Forecast values can change.`;
+ }catch(err){
+  document.getElementById('temperature').textContent='--°';document.getElementById('weatherDesc').textContent='Weather unavailable';document.getElementById('weatherStatus').textContent=err.message+' Check your internet connection and try again.';
+ }
+}
+document.getElementById('refreshWeather').addEventListener('click',loadWeather);
+document.getElementById('city').addEventListener('change',loadWeather);
+loadWeather();
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+const modal=document.getElementById('qrModal');
+document.getElementById('qrBtn').addEventListener('click',()=>{
+ const url=location.href;
+ if(url.startsWith('file:')||url==='about:blank'){
+  document.getElementById('qrHelp').textContent='This is currently a local preview. Publish the website first, then open its public https:// address to create a QR code that works for everyone.';
+  document.getElementById('qrCode').innerHTML='<div style="width:190px;height:190px;display:grid;place-items:center;background:#f0f3eb;color:#315b42;border-radius:10px;font-size:13px;padding:20px">Publish this page to create your public QR code.</div>';
+ }else{
+  document.getElementById('qrHelp').textContent=url;
+  document.getElementById('qrCode').innerHTML=`<img alt="QR code for GREENSCAPE website" width="190" height="190" src="https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=${encodeURIComponent(url)}">`;
+ }
+ modal.classList.add('open');
+});
+document.getElementById('closeQr').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+</script>
+</body></html>
